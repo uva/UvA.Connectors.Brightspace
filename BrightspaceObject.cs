@@ -27,7 +27,6 @@ namespace UvA.Connectors.Brightspace
             }
             if (!UrlCache.Contains(path))
             {
-                UrlCache.Add(path);
                 T[] res;
                 try
                 {
@@ -43,6 +42,7 @@ namespace UvA.Connectors.Brightspace
                         Related[typeof(T)] = res.Union(Related[typeof(T)]).Cast<T>().ToArray();
                     else
                         Related[typeof(T)] = res;
+                    UrlCache.Add(path);
                 }
                 foreach (var obj in res)
                 {
