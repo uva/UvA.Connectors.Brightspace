@@ -63,6 +63,13 @@ namespace UvA.Connectors.Brightspace
         }
 
         /// <summary>
+        /// Get course info
+        /// </summary>
+        /// <param name="orgUnitId">Target orgUnit Id</param>
+        public Task<Course> GetCourseOffering(int orgUnitId)
+            => Get<Course>($"{LpPart}/courses/{orgUnitId}");
+        
+        /// <summary>
         /// Get the sections for a course
         /// </summary>
         /// <param name="orgUnitId">Target orgUnit Id</param>

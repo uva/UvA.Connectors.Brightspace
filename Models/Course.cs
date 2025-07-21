@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace UvA.Connectors.Brightspace.Models
@@ -9,6 +7,8 @@ namespace UvA.Connectors.Brightspace.Models
     public class Course : BrightspaceObject
     {
         public int Identifier { get; set; }
+        public string Name { get; set; }
+        public string Code { get; set; }
 
         public Task<Section[]> GetSections() 
             => RetrieveRelated<Section>($"/{Identifier}/sections/");
